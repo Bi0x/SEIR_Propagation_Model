@@ -1,7 +1,7 @@
 from ERNetwork import *
 
-pointSum = 10
-connectProbability = 0.1
+pointSum = 20
+connectProbability = 0.4
 mapData = createERNetwork(pointSum, connectProbability)
 drawERMap(mapData)
 createDegreeChart(mapData, pointSum)
