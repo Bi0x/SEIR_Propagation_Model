@@ -25,8 +25,14 @@ firstInfector = firstInfectorSelect(pointSum)
 safe.remove(firstInfector)
 infected.append(firstInfector)
 
-infectionStart(safe, incubation, infected, recOrDead, mapData,
-               iterTime=t, omega=Omega, beta=Beta, mu=Mu)
+safeCount = pointSum - 1
+incubationCount = 0
+infectedCount = 1
+recOrDeadCount = 0
+
+infectionStart(safe, incubation, infected, recOrDead, 
+               safeCount, incubationCount, infectedCount, recOrDeadCount, 
+               mapData, iterTime=t, omega=Omega, beta=Beta, mu=Mu)
 
 
 plt.show()

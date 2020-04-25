@@ -5,7 +5,9 @@ def firstInfectorSelect(pointSum):
     return random.randint(1, pointSum)
 
 
-def infectionStart(safe, incubation, infected, recOrDead, graphData, iterTime=100, omega=0.2, beta=0.5, mu=0.2):
+def infectionStart(safe, incubation, infected, recOrDead, 
+                   safeCount, incubationCount, infectedCount, recOrDeadCount, 
+                   graphData, iterTime=100, omega=0.2, beta=0.5, mu=0.2):
     for ti in range(iterTime):
         newInfect = []
         newIncubation = []
@@ -16,7 +18,7 @@ def infectionStart(safe, incubation, infected, recOrDead, graphData, iterTime=10
             for nei in neighbors:
                 if random.random() > omega:
                     continue
-                if nei in safe:
+                if (nei in safe) and (nei not in newIncubation):
                     newIncubation.append(nei)
         # Incubation recovery or dead
         for incu in incubation:
@@ -24,6 +26,5 @@ def infectionStart(safe, incubation, infected, recOrDead, graphData, iterTime=10
                 if random.random() > beta:
                     continue
                 newInfect.append(incu)
-            else:    
+            else:
                 newRecOrDead.append(incu)
-        
