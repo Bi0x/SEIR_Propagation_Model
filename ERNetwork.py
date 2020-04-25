@@ -6,8 +6,8 @@ import numpy as np
 
 def createERNetwork(pointSum=10, connectProbability=0.2):
     graphData = nx.Graph()
-    for i in range(pointSum):
-        for j in range(i + 1, pointSum):
+    for i in range(1, pointSum + 1):
+        for j in range(i + 1, pointSum + 1):
             if i == j:
                 continue
             p = random.random()
@@ -27,7 +27,7 @@ def drawERMap(graphData):
 
 def createDegreeChart(graphData, pointSum):
     maxDegree = 0
-    for i in range(pointSum):
+    for i in range(1, pointSum + 1):
         try:
             maxDegree = max(maxDegree, graphData.degree(i))
         except nx.exception.NetworkXError:
@@ -36,7 +36,7 @@ def createDegreeChart(graphData, pointSum):
     plt.figure()
     plt.title("Degree Distribution Chart", fontsize=15)
     degreeData = [0] * (maxDegree + 1)
-    for i in range(pointSum):
+    for i in range(1, pointSum + 1):
         try:
             degreeData[graphData.degree(i)] += 1
         except nx.exception.NetworkXError:
