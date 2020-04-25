@@ -32,7 +32,7 @@ def createDegreeChart(graphData, pointSum):
             maxDegree = max(maxDegree, graphData.degree(i))
         except nx.exception.NetworkXError:
             pass
-    #print(maxDegree)
+    # print(maxDegree)
     plt.figure()
     plt.title("Degree Distribution Chart", fontsize=15)
     degreeData = [0] * (maxDegree + 1)
@@ -45,6 +45,6 @@ def createDegreeChart(graphData, pointSum):
         degreeData[i] = degreeData[i] * 1.0 / pointSum
     xLine = [x for x in range(maxDegree + 1)]
     yLine = degreeData
-    plt.xlabel('Degree', fontsize = 12)
-    plt.ylabel('P(Degree)', fontsize = 12, color='purple')
+    plt.xlabel('Degree', fontsize=12)
+    plt.ylabel('P(Degree)', fontsize=12, color='purple')
     plt.plot(xLine, yLine, marker='o')
