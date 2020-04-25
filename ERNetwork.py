@@ -1,7 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
-import numpy as np
 
 
 def createERNetwork(pointSum=10, connectProbability=0.2):

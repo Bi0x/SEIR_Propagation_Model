@@ -2,11 +2,11 @@ from ERNetwork import *
 from SEIRModel import *
 
 # ER Network Create
-pointSum = 10
-connectProbability = 0.2
+pointSum = 1000
+connectProbability = 0.006
 
 mapData = createERNetwork(pointSum, connectProbability)
-drawERMap(mapData)
+#drawERMap(mapData)
 createDegreeChart(mapData, pointSum)
 
 
@@ -25,14 +25,21 @@ firstInfector = firstInfectorSelect(pointSum)
 safe.remove(firstInfector)
 infected.append(firstInfector)
 
-safeCount = pointSum - 1
-incubationCount = 0
-infectedCount = 1
-recOrDeadCount = 0
+safeCount = [pointSum - 1]
+incubationCount = [0]
+infectedCount = [1]
+recOrDeadCount = [0]
 
 infectionStart(safe, incubation, infected, recOrDead, 
                safeCount, incubationCount, infectedCount, recOrDeadCount, 
                mapData, iterTime=t, omega=Omega, beta=Beta, mu=Mu)
 
+'''
+print(safeCount)
+print(incubationCount)
+print(infectedCount)
+print(recOrDeadCount)
+'''
+drawCurveChart(safeCount, incubationCount, infectedCount, recOrDeadCount, iterTime=t)
 
 plt.show()
