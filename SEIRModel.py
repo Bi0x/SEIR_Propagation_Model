@@ -73,7 +73,6 @@ def infectionStart(safe, incubation, infected, recOrDead,
         incubationCount.append(newIncubationCount)
         infectedCount.append(newInfectedCount)
         recOrDeadCount.append(newRecOrDeadCount)
-        print(ti)
 
 
 def drawCurveChart(safeCount, incubationCount, infectedCount, recOrDeadCount, iterTime=100):

@@ -1,6 +1,8 @@
 from ERNetwork import *
 from SEIRModel import *
+import time
 
+startTime = time.time()
 # ER Network Create
 pointSum = 1000
 connectProbability = 0.006
@@ -42,4 +44,5 @@ print(recOrDeadCount)
 '''
 drawCurveChart(safeCount, incubationCount, infectedCount, recOrDeadCount, iterTime=t)
 
+print(time.time() - startTime)
 plt.show()
