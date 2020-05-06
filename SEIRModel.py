@@ -23,7 +23,7 @@ def infectionStart(safe, incubation, infected, recOrDead,
                 for nei in neighbors:
                     if nei in infected:
                         infectedNeighbors += 1
-                if random.random() > (1 - (1 - beta) ** infectedNeighbors):
+                if random.random() > (1 - (1 - omega) ** infectedNeighbors):
                     continue
                 newIncubation.append(sa)
             except:
